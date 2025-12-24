@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Image Gallery Filter</title>
+  <style>
+    .gallery-item {
+      margin: 5px;
+      display: inline-block;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100px;
+      height: 100px;
+      display: block;
+    }
+   
+  </style>
+</head>
+<body>
+  <h2>Image Gallery</h2>
+
+  <div class="buttons">
+    <button onclick="filterGallery('All')">All</button>
+    <button onclick="filterGallery('Nature')">Nature</button>
+    <button onclick="filterGallery('Animals')">Animals</button>
+  </div>
+
+  <br>
+
+  <div class="gallery-item" data-category="Nature">
+    <img src="C:\Users\Admin\OneDrive\Pictures\Wallpapers\Falling.png" alt="Nature 1">
+    <span>Nature 1</span>
+  </div>
+
+  <div class="gallery-item" data-category="Animals">
+    <img src="C:\Users\Admin\OneDrive\Pictures\Wallpapers\adiyogi-shiva-statue.jpg" alt="Animal 1">
+    <span>Animal 1</span>
+  </div>
+
+  <div class="gallery-item" data-category="Nature">
+    <img src="C:\Users\Admin\OneDrive\Pictures\Wallpapers\shierd.png" alt="Nature 2">
+    <span>Nature 2</span>
+  </div>
+
+  <script>
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        item.style.display =
+          (category === 'All' || item.dataset.category === category)
+          ? 'inline-block'
+          : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
